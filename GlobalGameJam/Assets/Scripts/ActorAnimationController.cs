@@ -41,6 +41,11 @@ public class ActorAnimationController : MonoBehaviour
 
     public void SetMove(Vector2 move)
     {
+        if (move == Vector2.zero)
+        {
+            animator.SetBool("isMoving", false);
+            return;
+        }
         animator.SetBool("isMoving", true);
     }
 
