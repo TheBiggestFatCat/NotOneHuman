@@ -151,9 +151,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   rb: {fileID: 0}
-  atkDistance: 0.5
+  atkDistance: 1.86
   atkPoint: {x: 0, y: 0}
-  atkSize: {x: 1, y: 1}
+  atkSize: {x: 1.48, y: 2.59}
   atkAngle: 0
   atkLayer:
     serializedVersion: 2
