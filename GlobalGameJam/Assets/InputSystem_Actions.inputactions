@@ -489,6 +489,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "GameRestart",
+                    "type": "Button",
+                    "id": "21e59525-d848-4530-9b4f-b9047dfcd90f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Submit",
                     "type": "Button",
                     "id": "7607c7b6-cd76-4816-beef-bd0341cfe950",
@@ -834,6 +843,17 @@
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e830dcb3-74cb-49e9-a254-8994a593eae7",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameRestart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

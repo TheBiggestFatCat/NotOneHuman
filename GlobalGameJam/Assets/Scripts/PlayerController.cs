@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 direction;
     private PlayerInput playerInput;
-    private int playerIndex;
+    public int playerIndex { get; private set; }
     public float speed = 5f;
     private Actor actor;
     private bool isAttacking = false;
@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnGameOver(int arg0)
     {
-        Destroy(transform.GetChild(0).gameObject,2f);
+        this.enabled = false;
+        actor.enabled = false;
     }
 
     public void OnMove(InputValue value)
