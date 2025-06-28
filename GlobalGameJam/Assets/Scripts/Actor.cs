@@ -18,6 +18,16 @@ public class Actor : MonoBehaviour
         if(collider != null)
         {
             Debug.Log($"Collider:{collider.gameObject}");
+            Actor actor = collider.GetComponent<Actor>();
+            if(actor != null)
+            {
+                actor.TakeDamage();
+            }
         }        
+    }
+
+    public virtual void TakeDamage()
+    {
+        Debug.Log("Takge Damage");
     }
 }

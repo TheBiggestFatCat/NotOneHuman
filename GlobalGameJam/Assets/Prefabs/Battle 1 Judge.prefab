@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7941089619751870077}
   - component: {fileID: 3974857147147887771}
   - component: {fileID: 6867867178675535367}
+  - component: {fileID: 7490141852682452118}
   m_Layer: 8
   m_Name: Battle 1 Judge
   m_TagString: Untagged
@@ -134,3 +135,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.21, y: 1.27}
   m_EdgeRadius: 0
+--- !u!114 &7490141852682452118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196200303945940973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8a710579923a54fbf898e080784fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
