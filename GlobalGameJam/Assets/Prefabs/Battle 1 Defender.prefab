@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6563756643268342013}
   - component: {fileID: -2587411038610458536}
   - component: {fileID: 4460627744872456503}
-  m_Layer: 0
+  - component: {fileID: 1178990475118847390}
+  m_Layer: 7
   m_Name: Battle 1 Defender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c46a7f08e41f22489a82f80810ee9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  atkDistance: 0.5
+  atkSize: {x: 1, y: 1}
+  atkAngle: 0
+  atkLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &4460627744872456503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +146,21 @@ MonoBehaviour:
   animator: {fileID: 6563756643268342013}
   blinkChance: 10
   lookChance: 10
+--- !u!114 &1178990475118847390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048906434754005601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c46a7f08e41f22489a82f80810ee9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkDistance: 0.5
+  atkSize: {x: 1, y: 1}
+  atkAngle: 0
+  atkLayer:
+    serializedVersion: 2
+    m_Bits: 64

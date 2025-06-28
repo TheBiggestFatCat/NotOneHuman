@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private int playerIndex;
     public float speed = 5f;
-
+    private Actor actor;
 
     private void Awake()
     {
@@ -22,23 +22,34 @@ public class PlayerController : MonoBehaviour
     public void InitGameObject()
     {
         Debug.Log($"Player {playerIndex} On Awake");
-        if (GameManager.Instance.gameStats.AttackerPlayerIndex == playerIndex)
+        PlayerData playerData = GameManager.Instance.GetPlayerData(playerIndex);
+        if (playerData != null)
         {
-            Debug.Log($"Player {playerIndex} is the Attacker");
-            var attacker = gameObject.AddComponent<Attacker>();
-            attacker.InitObject(playerIndex);
-        }
-        else
-        {
-            Debug.Log($"Player {playerIndex} is not the Attacker");
-            var defender = gameObject.AddComponent<Defender>();
-            defender.InitObject(playerIndex);
+            var obj = Instantiate(playerData.prefab, transform);
+            actor = obj.GetComponent<Actor>();
         }
     }
 
-    private void OnMove(InputValue value)
+    public void OnMove(InputValue value)
     {
         direction = value.Get<Vector2>();
+        if(direction.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if(direction.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    public void OnAttack()
+    {
+        Debug.Log($"Player {playerIndex} attacked!");
+        if(actor != null)
+        {
+            actor.Attack();
+        }
     }
 
     private void Move()
