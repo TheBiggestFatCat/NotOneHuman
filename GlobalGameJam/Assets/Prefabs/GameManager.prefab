@@ -49,10 +49,12 @@ MonoBehaviour:
     SceneIndex: 0
   playerData:
   - prefab: {fileID: 156862447102498159, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
+    StartPosition: {x: -5.33, y: -0.5, z: 0}
     localPositionOffset: {x: 0, y: 0, z: 0}
     isAttacker: 1
     SceneIndex: 0
   - prefab: {fileID: 2048906434754005601, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
+    StartPosition: {x: 5.7, y: -0.45, z: 0}
     localPositionOffset: {x: 0, y: 0, z: 0}
     isAttacker: 0
     SceneIndex: 0
@@ -61,3 +63,8 @@ MonoBehaviour:
   OnGameOver:
     m_PersistentCalls:
       m_Calls: []
+  readyManCount: 12
+  OnGameReady:
+    m_PersistentCalls:
+      m_Calls: []
+  gameStartDelay: 3

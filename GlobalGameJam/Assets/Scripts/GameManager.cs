@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"No player data found for player index {playerIndex}");
             return null;
         }
-        var obj = Instantiate(playerData.prefab, playerData.StartPosition,Quaternion.identity,parent);
+        var obj = Instantiate(playerData.prefab,parent);
         obj.transform.localPosition = playerData.localPositionOffset;
         Actor actor = obj.GetComponent<Actor>();
         actorList.Add(playerIndex, actor);

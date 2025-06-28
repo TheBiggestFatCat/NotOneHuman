@@ -21,12 +21,19 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerIndex = playerInput.playerIndex;
+        Debug.Log($"Player {playerIndex} On Awake");
+        MoveToStartPoint();
         InitGameObject();
+    }
+
+    public void MoveToStartPoint()
+    {
+        var playerData = GameManager.Instance.GetPlayerData(playerIndex);
+        transform.position = playerData.StartPosition;
     }
 
     public void InitGameObject()
     {
-        Debug.Log($"Player {playerIndex} On Awake");
         var newActor = GameManager.Instance.CreateActor(playerIndex, transform);
         if(newActor != null)
         {
