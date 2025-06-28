@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: de0571efcfa6a0744acff0245755e93b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,9 +139,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411a104d234ab3b43b4be139b1f300ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TackDamage:
+    m_PersistentCalls:
+      m_Calls: []
   atkDistance: 0.5
+  atkPoint: {x: 0, y: 0}
   atkSize: {x: 1, y: 1}
   atkAngle: 0
   atkLayer:
     serializedVersion: 2
     m_Bits: 256
+  AtkColdDown: 1
+  StopColdDown: 2
