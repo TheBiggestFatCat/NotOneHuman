@@ -17,7 +17,14 @@ public class GameManager : MonoBehaviour
     }    
     public GameStats gameStats;
     public PlayerData[] playerData;
+    public GameObject judgePrefab;
+    public Vector3 judgeStartPosition;
     public UnityEvent<int> OnGameOver;
+
+    public void StartGame()
+    {
+        Instantiate(judgePrefab, judgeStartPosition, Quaternion.identity);
+    }
 
     public void DefenderTakeDamage()
     {
@@ -32,7 +39,6 @@ public class GameManager : MonoBehaviour
             ScoreManager.Instance.AddP2Score(1);
             OnGameOver?.Invoke(1);
         }
-        ;
     }
     public void TimeOver()
     {

@@ -1,6 +1,8 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using Unity.VisualScripting;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,6 +32,20 @@ public class PlayerController : MonoBehaviour
             var obj = Instantiate(playerData.prefab, transform);
             actor = obj.GetComponent<Actor>();
         }
+    }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameOver.AddListener(OnGameOver);
+    }
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameOver.RemoveListener(OnGameOver);
+    }
+
+    private void OnGameOver(int arg0)
+    {
+        this.enabled = false;
     }
 
     public void OnMove(InputValue value)
@@ -62,13 +78,9 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(rb.position + movement);
         }
         PlayerMove?.Invoke(direction);
-        Debug.Log($"Player {playerIndex} is moving: {direction}");
+        //Debug.Log($"Player {playerIndex} is moving: {direction}");
     }
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

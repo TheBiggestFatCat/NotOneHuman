@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,6 +22,21 @@ public class Actor : MonoBehaviour
     private float stopTimer;
     public bool CanAttack { get; set; } = true;
     public bool CanMove { get; set; } = true;
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameOver.AddListener(OnGameOver);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameOver.RemoveListener(OnGameOver);
+    }
+
+    private void OnGameOver(int arg0)
+    {
+        this.enabled = false;
+    }
 
     public virtual void Attack()
     {
