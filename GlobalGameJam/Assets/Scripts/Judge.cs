@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public class Attacker : Actor
+public class Judge : MonoBehaviour
 {
-    
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("Attacker started");
+        
     }
 
     // Update is called once per frame

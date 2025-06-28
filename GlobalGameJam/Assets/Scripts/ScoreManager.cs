@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ScoreActor : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
-    public static ScoreActor Instance { get; private set; }
+    public static ScoreManager Instance { get; private set; }
     private int p1Score = 0;
     private int p2Score = 0;
 
