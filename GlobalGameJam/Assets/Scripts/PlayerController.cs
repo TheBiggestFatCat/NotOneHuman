@@ -79,12 +79,14 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        PlayerMove?.Invoke(direction);
+        if (isAttacking) return;
+        
         if(actor != null && actor.CanMove)
         {
             Vector2 movement = direction * Time.deltaTime * speed;
             rb.MovePosition(rb.position + movement);
         }
-        PlayerMove?.Invoke(direction);
         //Debug.Log($"Player {playerIndex} is moving: {direction}");
     }
 
