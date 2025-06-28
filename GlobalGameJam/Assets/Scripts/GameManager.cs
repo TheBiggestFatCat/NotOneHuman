@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,10 +15,32 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }    
+    }
     public GameStats gameStats;
     public PlayerData[] playerData;
+    public GameObject judgePrefab;
+    public Vector3 judgeStartPosition;
     public UnityEvent<int> OnGameOver;
+    public int readyManCount = 12;
+    public UnityEvent OnGameReady;
+    public float gameStartDelay = 3f;
+
+    public void GetReady()
+    {
+        readyManCount--;
+        if(readyManCount <= 0)
+        {
+            OnGameReady?.Invoke();
+            StartCoroutine(StartGame());
+        }
+        Debug.Log($"GetReady Man = {readyManCount}");
+    }
+
+    IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(gameStartDelay);
+        Instantiate(judgePrefab, judgeStartPosition, Quaternion.identity);
+    }
 
     public void DefenderTakeDamage()
     {
@@ -32,7 +55,6 @@ public class GameManager : MonoBehaviour
             ScoreManager.Instance.AddP2Score(1);
             OnGameOver?.Invoke(1);
         }
-        ;
     }
     public void TimeOver()
     {
