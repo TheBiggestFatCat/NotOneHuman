@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         {
             return actor;
         }
-        Debug.LogWarning($"No actor found for player index {playerIndex}");
+        //Debug.LogWarning($"No actor found for player index {playerIndex}");
         return null;
     }
 

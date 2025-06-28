@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerIndex = playerInput.playerIndex;
         Debug.Log($"Player {playerIndex} On Awake");
@@ -38,6 +37,7 @@ public class PlayerController : MonoBehaviour
         if(newActor != null)
         {
             this.actor = newActor;
+            rb = actor.GetComponent<Rigidbody2D>();
         }
     }
 

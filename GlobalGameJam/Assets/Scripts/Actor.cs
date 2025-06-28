@@ -69,7 +69,7 @@ public class Actor : MonoBehaviour
 
     public virtual void TakeDamage(Actor atkActor)
     {
-        CanMove = false;
+        CanMove = false;        
         Debug.Log($"{gameObject}Takge Damage ,by {atkActor.gameObject}");
         TackDamage?.Invoke();
     }
@@ -81,14 +81,14 @@ public class Actor : MonoBehaviour
             atkTimer += Time.deltaTime;
             if (atkTimer >= AtkColdDown)
             {
-                CanAttack = true;                
+                CanAttack = true;             
             }
+            UpdateAttackCD?.Invoke(atkTimer / AtkColdDown);
         }
         else
         {
             atkTimer = 0f;
-        }
-        UpdateAttackCD?.Invoke(atkTimer / AtkColdDown);
+        }        
     }
 
     protected virtual void ColdDownMove()
@@ -103,7 +103,7 @@ public class Actor : MonoBehaviour
         }
         else
         {
-            stopTimer = 0f;
+            stopTimer = 0f;            
         }
     }
 
