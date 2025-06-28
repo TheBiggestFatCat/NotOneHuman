@@ -14,6 +14,7 @@ public class Actor : MonoBehaviour
     public LayerMask atkLayer;
 
     [Header("Action")]
+    public float AtkForce = 10f;
     public float AtkColdDown = 1f;
     public float StopColdDown = 2f;
     private float atkTimer;
@@ -23,7 +24,7 @@ public class Actor : MonoBehaviour
 
     public virtual void Attack()
     {
-        if(!CanAttack)
+        if (!CanAttack || !CanMove)
         {
             Debug.Log("Can not attack yet!");
             return;
@@ -43,6 +44,8 @@ public class Actor : MonoBehaviour
             {
                 actor.TakeDamage(this);
             }
+            Vector2 force =(collider.transform.position - transform.position).normalized * AtkForce;
+            collider.GetComponent<Rigidbody2D>()?.AddForce(force, ForceMode2D.Impulse);
         }
         PlayerAttack?.Invoke();
     }

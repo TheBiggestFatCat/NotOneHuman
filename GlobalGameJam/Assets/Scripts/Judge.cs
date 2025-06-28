@@ -6,12 +6,9 @@ public class Judge : Actor
     public Vector2 maxPosition, minPosition;
     public float Speed = 20f;
     public float RotSpeed = 500f;
-    public Vector2 attachOffset;
-    private Transform attachTrans;
     private Rigidbody2D rb;
     private bool isMoving;
     private Vector2 targetPosition;
-    private bool isAttached;
 
     private void Awake()
     {
@@ -25,14 +22,8 @@ public class Judge : Actor
         return new Vector2(x, y);
     }
 
-    public override void TakeDamage(Actor atkActor)
-    {
-        base.TakeDamage(atkActor);
-        if(atkActor is Attacker)
-        {
-            isAttached = true;
-        }
-    }
+    
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -47,18 +38,7 @@ public class Judge : Actor
     protected override void Update()
     {
         base.Update();
-        if(isAttached)
-        {
-            if(!CanMove)
-            {
-                transform.position = attachTrans.position + (Vector3)attachOffset;
-            }
-            else
-            {
-                isAttached = false;
-            }
-            return;
-        }
+        if (!CanMove) return;
         
         if(!isMoving)
         {

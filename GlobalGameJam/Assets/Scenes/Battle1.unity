@@ -1256,33 +1256,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battle 1 Judge
       objectReference: {fileID: 0}
-    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
-      propertyPath: RotSpeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
-      propertyPath: maxPosition.x
-      value: 7.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
-      propertyPath: maxPosition.y
-      value: 3.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
-      propertyPath: minPosition.x
-      value: -7.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
-      propertyPath: minPosition.y
-      value: -3.81
-      objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.07
       objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1294,15 +1274,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1395,6 +1375,6 @@ SceneRoots:
   - {fileID: 974273486}
   - {fileID: 2146295907}
   - {fileID: 750706478}
-  - {fileID: 1978195697}
   - {fileID: 1938586372}
   - {fileID: 965786967}
+  - {fileID: 1978195697}

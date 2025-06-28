@@ -142,6 +142,9 @@ MonoBehaviour:
   TackDamage:
     m_PersistentCalls:
       m_Calls: []
+  PlayerAttack:
+    m_PersistentCalls:
+      m_Calls: []
   atkDistance: 0.5
   atkPoint: {x: 0, y: 0}
   atkSize: {x: 1, y: 1}
@@ -149,5 +152,6 @@ MonoBehaviour:
   atkLayer:
     serializedVersion: 2
     m_Bits: 256
+  AtkForce: 30
   AtkColdDown: 1
   StopColdDown: 2
