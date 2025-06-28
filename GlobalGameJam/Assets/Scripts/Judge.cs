@@ -18,11 +18,11 @@ public class Judge : Actor
 
     private void OnCollisionEnter(Collision collision)
     {
-        var obj = collision.gameObject.GetComponent<Actor>();
-        if(obj != null && obj is Defender)
+        Debug.Log($"Judge collided with {collision.gameObject.name}");
+        var obj = collision.gameObject.GetComponentInChildren<Actor>();        
+        if (obj != null && obj is Defender)
         {
-            obj.TakeDamage(this);
-            Debug.Log($"Judge collided with {obj.gameObject.name}");
+            obj.TakeDamage(this);            
         }
     }
 

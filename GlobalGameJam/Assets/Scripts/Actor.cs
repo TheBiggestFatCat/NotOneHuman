@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Actor : MonoBehaviour
 {
-    public UnityEvent TackDamage;
+    public UnityEvent OnTakeDamage;
     public UnityEvent PlayerAttack;
     public UnityEvent<float> UpdateAttackCD;
     public Rigidbody2D rb;
@@ -26,16 +26,7 @@ public class Actor : MonoBehaviour
     
     public bool CanAttack { get; set; } = true;
     public bool CanMove { get; set; } = true;
-
-    private void OnEnable()
-    {
-        GameManager.Instance.OnGameOver.AddListener(OnGameOver);
-    }
-
-    private void OnDisable()
-    {
-        GameManager.Instance.OnGameOver.RemoveListener(OnGameOver);
-    }
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,10 +34,6 @@ public class Actor : MonoBehaviour
         {
             rb = transform.parent.GetComponent<Rigidbody2D>();
         }
-    }
-    private void OnGameOver(int arg0)
-    {
-        this.enabled = false;
     }
 
     public virtual void Attack()
@@ -81,7 +68,7 @@ public class Actor : MonoBehaviour
     {
         CanMove = false;        
         Debug.Log($"{gameObject}Takge Damage ,by {atkActor.gameObject}");
-        TackDamage?.Invoke();
+        OnTakeDamage?.Invoke();
     }
 
     protected virtual void ColdDownAttack()
