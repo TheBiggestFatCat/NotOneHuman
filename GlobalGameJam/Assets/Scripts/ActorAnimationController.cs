@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ActorAnimationController: MonoBehaviour
+public class ActorAnimationController : MonoBehaviour
 {
     public Animator animator;
     public int blinkChance = 10; // 眨眼的概率
@@ -10,12 +10,13 @@ public class ActorAnimationController: MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(Idle());
+        StartCoroutine(SetIdle());
         transform.parent.GetComponent<PlayerController>().PlayerMove.AddListener(SetMove);
+        transform.GetComponent<Actor>().PlayerAttack.AddListener(SetAttack);
     }
-    
+
     // 待机动画 随机事件眨眼和左右看
-    public IEnumerator Idle()
+    public IEnumerator SetIdle()
     {
         while (true)
         {
@@ -40,7 +41,11 @@ public class ActorAnimationController: MonoBehaviour
 
     public void SetMove(Vector2 move)
     {
-        Debug.Log($"ActorAnimationController SetMove: {move}");
         animator.SetBool("isMoving", true);
+    }
+
+    public void SetAttack()
+    {
+        animator.SetTrigger("attack");
     }
 }
