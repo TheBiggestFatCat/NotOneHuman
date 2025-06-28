@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction;
     private PlayerInput playerInput;
     private int playerIndex;
-
     public float speed = 5f;
 
 
@@ -17,8 +16,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerIndex = playerInput.playerIndex;
+        InitGameObject();
+    }
+
+    public void InitGameObject()
+    {
         Debug.Log($"Player {playerIndex} On Awake");
-        if(GameManager.Instance.gameStats.AttackerPlayerIndex == playerIndex)
+        if (GameManager.Instance.gameStats.AttackerPlayerIndex == playerIndex)
         {
             Debug.Log($"Player {playerIndex} is the Attacker");
             var attacker = gameObject.AddComponent<Attacker>();
