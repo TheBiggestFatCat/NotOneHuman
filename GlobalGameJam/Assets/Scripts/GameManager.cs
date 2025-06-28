@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public UnityEvent OnGameReady;
@@ -116,6 +117,11 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextBattle()
     {
+        readyManCount = 12;
+        actorList.Clear();
+        gameStats.AttackerPlayerIndex = gameStats.AttackerPlayerIndex == 0 ? 1 : 0;
+        OnGameReady.RemoveAllListeners();
+        OnGameOver.RemoveAllListeners();
         SceneManager.LoadScene(0);
     }
 }
