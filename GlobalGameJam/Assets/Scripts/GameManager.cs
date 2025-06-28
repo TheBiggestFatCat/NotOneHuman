@@ -124,6 +124,11 @@ public class GameManager : MonoBehaviour
         OnGameOver.RemoveAllListeners();
         SceneManager.LoadScene(0);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
 
 
