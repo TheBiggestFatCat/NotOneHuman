@@ -11,8 +11,9 @@ public class ActorAnimationController: MonoBehaviour
     void Start()
     {
         StartCoroutine(Idle());
+        transform.parent.GetComponent<PlayerController>().PlayerMove.AddListener(SetMove);
     }
-
+    
     // 待机动画 随机事件眨眼和左右看
     public IEnumerator Idle()
     {
@@ -37,11 +38,9 @@ public class ActorAnimationController: MonoBehaviour
         }
     }
 
-    public void OnMove(InputValue value)
+    public void SetMove(Vector2 move)
     {
-        Debug.Log(value);
+        Debug.Log($"ActorAnimationController SetMove: {move}");
         animator.SetBool("isMoving", true);
     }
-    
-
 }
