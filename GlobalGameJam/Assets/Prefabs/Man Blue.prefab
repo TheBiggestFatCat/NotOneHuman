@@ -175,6 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb0f4a320700a441a2625bb6105a8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 30
-  maxPosition: {x: 0, y: 0, z: 0}
-  minPosition: {x: 0, y: 0, z: 0}
+  force: 50
+  maxPosition: {x: 10, y: 6, z: 0}
+  minPosition: {x: -10, y: -6, z: 0}

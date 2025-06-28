@@ -6,6 +6,7 @@ public class Actor : MonoBehaviour
 {
     public UnityEvent TackDamage;
     public UnityEvent PlayerAttack;
+    public UnityEvent<float> UpdateAttackCD;
 
     [Header("AtkBox")]
     public float atkDistance = 0.5f;
@@ -87,6 +88,7 @@ public class Actor : MonoBehaviour
         {
             atkTimer = 0f;
         }
+        UpdateAttackCD?.Invoke(atkTimer / AtkColdDown);
     }
 
     protected virtual void ColdDownMove()

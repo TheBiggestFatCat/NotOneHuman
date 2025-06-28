@@ -3,28 +3,24 @@ using UnityEngine;
 public class Man : MonoBehaviour
 {
     public float force = 30f;
-    public Vector3 maxPosition;
-    public Vector3 minPosition;
+    public Vector2 maxPosition;
+    public Vector2 minPosition;
+    public bool isMoveing;
+    private Rigidbody rb;
 
-    private bool isMoveing;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        var obj = collision.gameObject.GetComponent<Actor>();
-        if(obj != null)
-        {
-            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-            if(rb != null)
-            {
-                Vector2 dir = (transform.position - obj.transform.position).normalized;
-                rb.AddForce(dir * force, ForceMode2D.Impulse);
-                isMoveing = true;
-            }
-        }
+        isMoveing = true;
     }
     private void Update()
     {
         if(isMoveing)
         {
+            rb.rotation *= Quaternion.Euler(0, 1, 0);
             if (transform.position.x > maxPosition.x || transform.position.x < minPosition.x ||
                transform.position.y > maxPosition.y || transform.position.y < minPosition.y)
             {

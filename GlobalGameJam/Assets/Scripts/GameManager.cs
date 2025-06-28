@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnGameReady;
     public float gameStartDelay = 3f;
 
+    private Dictionary<int, Actor> actorList = new();
+
     public void GetReady()
     {
         readyManCount--;
@@ -40,6 +43,31 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(gameStartDelay);
         Instantiate(judgePrefab, judgeStartPosition, Quaternion.identity);
+    }
+
+    public Actor CreateActor(int playerIndex,Transform parent)
+    {
+        var playerData = GetPlayerData(playerIndex);
+        if(playerData == null)
+        {
+            Debug.LogError($"No player data found for player index {playerIndex}");
+            return null;
+        }
+        var obj = Instantiate(playerData.prefab, playerData.StartPosition,Quaternion.identity,parent);
+        obj.transform.localPosition = playerData.localPositionOffset;
+        Actor actor = obj.GetComponent<Actor>();
+        actorList.Add(playerIndex, actor);
+        return actor;
+    }
+
+    public Actor GetActor(int playerIndex)
+    {
+        if(actorList.TryGetValue(playerIndex, out Actor actor))
+        {
+            return actor;
+        }
+        Debug.LogWarning($"No actor found for player index {playerIndex}");
+        return null;
     }
 
     public void DefenderTakeDamage()
@@ -103,6 +131,7 @@ public class GameStats
 public class PlayerData
 {
     public GameObject prefab;
+    public Vector3 StartPosition;
     public Vector3 localPositionOffset;
     public bool isAttacker;
     public int SceneIndex;

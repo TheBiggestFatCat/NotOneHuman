@@ -27,11 +27,10 @@ public class PlayerController : MonoBehaviour
     public void InitGameObject()
     {
         Debug.Log($"Player {playerIndex} On Awake");
-        PlayerData playerData = GameManager.Instance.GetPlayerData(playerIndex);
-        if (playerData != null)
+        var newActor = GameManager.Instance.CreateActor(playerIndex, transform);
+        if(newActor != null)
         {
-            var obj = Instantiate(playerData.prefab, transform);
-            actor = obj.GetComponent<Actor>();
+            this.actor = newActor;
         }
     }
 
