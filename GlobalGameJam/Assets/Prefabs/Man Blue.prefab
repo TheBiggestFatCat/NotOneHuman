@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 146738172100971591}
   - component: {fileID: 7788621195178084071}
   - component: {fileID: 4964773339699000419}
+  - component: {fileID: 6797355573585258616}
   m_Layer: 10
   m_Name: Man Blue
   m_TagString: Untagged
@@ -162,3 +163,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7, y: 1.7}
   m_EdgeRadius: 0
+--- !u!114 &6797355573585258616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328174892399661257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb0f4a320700a441a2625bb6105a8ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 30
+  maxPosition: {x: 0, y: 0, z: 0}
+  minPosition: {x: 0, y: 0, z: 0}

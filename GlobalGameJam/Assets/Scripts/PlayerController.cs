@@ -69,9 +69,11 @@ public class PlayerController : MonoBehaviour
         {
             actor.Attack();
         }
+    }
+    public void AttackStart()
+    {
         isAttacking = true;
     }
-
     public void Attackover()
     {
         isAttacking = false;
@@ -94,5 +96,5 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-    }
+    }    
 }

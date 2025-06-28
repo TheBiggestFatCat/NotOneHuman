@@ -6,4 +6,9 @@ public class AnimationEvent : MonoBehaviour
     {
         transform.parent.GetComponent<PlayerController>()?.Attackover();
     }
+
+    public void AttackStart()
+    {
+        transform.parent.GetComponent<PlayerController>()?.AttackStart();
+    }
 }
