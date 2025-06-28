@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Defender : Actor
 {
-    void Start()
+    public override void TakeDamage()
     {
-        Debug.Log("Defender started");
+        base.TakeDamage();
+        CanAttack = false;
     }
 }

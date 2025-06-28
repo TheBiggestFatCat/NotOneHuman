@@ -60,8 +60,11 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector2 movement = direction * Time.deltaTime * speed;
-        rb.MovePosition(rb.position + movement);
+        if(actor != null && actor.CanMove)
+        {
+            Vector2 movement = direction * Time.deltaTime * speed;
+            rb.MovePosition(rb.position + movement);
+        }
     }
 
     void Start()
