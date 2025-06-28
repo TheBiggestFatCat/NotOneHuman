@@ -16,13 +16,13 @@ public class SkillCD : MonoBehaviour
         else
         {
             return;
-        }
+        }   
     }
     public void SetFillAmount(float fillAmount)
     {
         if (SkillImage != null)
         {
-            SkillImage.fillAmount = fillAmount;
+            SkillImage.fillAmount = 1 - fillAmount;
         }
     }
 }
