@@ -8,11 +8,13 @@ public class UIController : MonoBehaviour
     public GameObject InGameUI;
     public GameObject Player1UI;
     public GameObject Player2UI;
+    public GameObject EndGameUI;
 
     void Start()
     {
         ShowStartText();
         GameManager.Instance.OnGameReady.AddListener(HideMenuUI);
+        GameManager.Instance.OnGameOver.AddListener(ShowEndGameUI);
     }
 
     void Update()
@@ -58,5 +60,10 @@ public class UIController : MonoBehaviour
     public void ShowPlayer2UI()
     {
         Player2UI.transform.DOScale(Vector3.one, 0.5f);
+    }
+
+    public void ShowEndGameUI(int winnerIndex)
+    {
+        EndGameUI.transform.DOScale(Vector3.one, 0.5f);
     }
 }
