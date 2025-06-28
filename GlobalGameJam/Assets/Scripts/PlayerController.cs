@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private int playerIndex;
     public float speed = 5f;
     private Actor actor;
+    private bool isAttacking = false;
 
     public UnityEvent<Vector2> PlayerMove;
 
@@ -68,6 +69,12 @@ public class PlayerController : MonoBehaviour
         {
             actor.Attack();
         }
+        isAttacking = true;
+    }
+
+    public void Attackover()
+    {
+        isAttacking = false;
     }
 
     private void Move()

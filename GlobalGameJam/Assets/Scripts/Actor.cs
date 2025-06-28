@@ -14,7 +14,7 @@ public class Actor : MonoBehaviour
     public float atkAngle = 0f;
     public LayerMask atkLayer;
 
-    [Header("Action")]
+    [Header("Action")]    
     public float AtkForce = 10f;
     public float AtkColdDown = 1f;
     public float StopColdDown = 2f;

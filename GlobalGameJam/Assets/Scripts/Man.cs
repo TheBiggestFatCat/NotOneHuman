@@ -28,7 +28,8 @@ public class Man : MonoBehaviour
             if (transform.position.x > maxPosition.x || transform.position.x < minPosition.x ||
                transform.position.y > maxPosition.y || transform.position.y < minPosition.y)
             {
-                
+                isMoveing = false;
+                GameManager.Instance.GetReady();
             }
         }
     }
