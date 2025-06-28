@@ -17,13 +17,15 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    public UnityEvent OnGameReady;
+    public UnityEvent<int> OnGameOver;
+
     public GameStats gameStats;
     public PlayerData[] playerData;
     public GameObject judgePrefab;
-    public Vector3 judgeStartPosition;
-    public UnityEvent<int> OnGameOver;
+    public Vector3 judgeStartPosition;    
     public int readyManCount = 12;
-    public UnityEvent OnGameReady;
     public float gameStartDelay = 3f;
 
     private Dictionary<int, Actor> actorList = new();
@@ -125,6 +127,7 @@ public class GameStats
 {
     public int AttackerPlayerIndex;
     public int SceneIndex;
+    public float GameTime = 60f;
 }
 
 [Serializable]
