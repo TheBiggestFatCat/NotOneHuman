@@ -175,12 +175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8a710579923a54fbf898e080784fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TackDamage:
+  OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
   PlayerAttack:
     m_PersistentCalls:
       m_Calls: []
+  UpdateAttackCD:
+    m_PersistentCalls:
+      m_Calls: []
+  rb: {fileID: 0}
   atkDistance: 0.5
   atkPoint: {x: 0, y: 0}
   atkSize: {x: 1, y: 1}

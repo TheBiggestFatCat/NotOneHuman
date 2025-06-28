@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411a104d234ab3b43b4be139b1f300ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TackDamage:
+  OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
   PlayerAttack:

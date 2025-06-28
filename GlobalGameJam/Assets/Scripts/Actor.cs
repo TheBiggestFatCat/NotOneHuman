@@ -53,12 +53,12 @@ public class Actor : MonoBehaviour
         {
             Debug.Log($"Collider:{collider.gameObject}");
             Actor actor = collider.GetComponent<Actor>();
-            if(actor != null)
+            if(actor != null && actor != this)
             {
                 actor.TakeDamage(this);
                 Vector2 force = (collider.transform.position - transform.position).normalized * AtkForce;
                 actor.rb?.AddForce(force, ForceMode2D.Impulse);
-            }            
+            }
         }
         PlayerAttack?.Invoke();
     }
