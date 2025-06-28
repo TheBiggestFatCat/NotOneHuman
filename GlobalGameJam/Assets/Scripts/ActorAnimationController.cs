@@ -13,6 +13,7 @@ public class ActorAnimationController : MonoBehaviour
         StartCoroutine(SetIdle());
         transform.parent.GetComponent<PlayerController>().PlayerMove.AddListener(SetMove);
         transform.GetComponent<Actor>().PlayerAttack.AddListener(SetAttack);
+        transform.GetComponent<Actor>().TackDamage.AddListener(SetTakeDamage);
     }
 
     // 待机动画 随机事件眨眼和左右看
@@ -52,5 +53,26 @@ public class ActorAnimationController : MonoBehaviour
     public void SetAttack()
     {
         animator.SetTrigger("attack");
+    }
+
+    public void SetTakeDamage()
+    {
+        animator.SetTrigger("beAttacked");
+        StartCoroutine(CheckEndDizzy());
+    }
+
+    public IEnumerator CheckEndDizzy()
+    {
+        while (true) {
+            if (GetComponent<Actor>().CanMove)
+            {
+                animator.SetTrigger("endDizzy");
+                yield break; // 结束协程
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f); // 每0.5秒检查一次
+            }
+        }
     }
 }
