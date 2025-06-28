@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent OnGameReady;
     public UnityEvent<int> OnGameOver;
-
     public GameStats gameStats;
     public PlayerData[] playerData;
     public GameObject judgePrefab;
