@@ -736,120 +736,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1095334431
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 156862447102498159, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_Name
-      value: Battle 1 Attacker
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4186053737017208467, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
---- !u!1001 &1239485236
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2048906434754005601, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_Name
-      value: Battle 1 Defender
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517707283224362426, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
 --- !u!1 &1239648417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,13 +1000,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battle 1 Judge
       objectReference: {fileID: 0}
+    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
+      propertyPath: RotSpeed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
+      propertyPath: maxPosition.x
+      value: 7.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
+      propertyPath: maxPosition.y
+      value: 3.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
+      propertyPath: minPosition.x
+      value: -7.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490141852682452118, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
+      propertyPath: minPosition.y
+      value: -3.81
+      objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7941089619751870077, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1230,6 +1136,4 @@ SceneRoots:
   - {fileID: 974273486}
   - {fileID: 2146295907}
   - {fileID: 750706478}
-  - {fileID: 1095334431}
-  - {fileID: 1239485236}
   - {fileID: 1978195697}

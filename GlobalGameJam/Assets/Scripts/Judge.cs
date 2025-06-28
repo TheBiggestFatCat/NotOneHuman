@@ -1,12 +1,17 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Judge : Actor
 {
     public Vector2 maxPosition, minPosition;
     public float Speed = 20f;
+    public float RotSpeed = 500f;
+    public Vector2 attachOffset;
+    private Transform attachTrans;
     private Rigidbody2D rb;
     private bool isMoving;
     private Vector2 targetPosition;
+    private bool isAttached;
 
     private void Awake()
     {
@@ -20,21 +25,45 @@ public class Judge : Actor
         return new Vector2(x, y);
     }
 
+    public override void TakeDamage(Actor atkActor)
+    {
+        base.TakeDamage(atkActor);
+        if(atkActor is Attacker)
+        {
+            isAttached = true;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         var obj = collision.gameObject.GetComponent<Actor>();
         if(obj != null && obj is Defender)
         {
-            obj.TakeDamage();
+            obj.TakeDamage(this);
             Debug.Log($"Judge collided with {obj.gameObject.name}");
         }
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+        if(isAttached)
+        {
+            if(!CanMove)
+            {
+                transform.position = attachTrans.position + (Vector3)attachOffset;
+            }
+            else
+            {
+                isAttached = false;
+            }
+            return;
+        }
+        
         if(!isMoving)
         {
             targetPosition = RandmoPoint();
+            Debug.Log($"Judge moving to {targetPosition}");
             isMoving = true;
         }
         else
@@ -48,6 +77,9 @@ public class Judge : Actor
                 Vector2 direction = (targetPosition - rb.position).normalized;
                 rb.MovePosition(rb.position + direction * Time.deltaTime * Speed);
             }
+
+            //Ã¿Ö¡Ë³Ê±ÕëÐý×ª
+            rb.rotation += RotSpeed * Time.deltaTime;
         }
 
     }

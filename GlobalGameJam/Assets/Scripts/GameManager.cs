@@ -17,6 +17,23 @@ public class GameManager : MonoBehaviour
     public GameStats gameStats;
     public PlayerData[] playerData;
 
+    public void DefenderTakeDamage()
+    {
+        bool p1Attacker = gameStats.AttackerPlayerIndex == 0;
+        if(p1Attacker)
+        {
+            ScoreManager.Instance.AddP1Score(1);
+        }
+        else
+        {
+            ScoreManager.Instance.AddP2Score(1);
+        }
+    }
+    public void TimeOver()
+    {
+
+    }
+
     public PlayerData GetPlayerData(int playerIndex)
     {
         bool playerIsAttacker = playerIndex == gameStats.AttackerPlayerIndex;

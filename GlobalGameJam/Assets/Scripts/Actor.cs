@@ -41,39 +41,54 @@ public class Actor : MonoBehaviour
             Actor actor = collider.GetComponent<Actor>();
             if(actor != null)
             {
-                actor.TakeDamage();
+                actor.TakeDamage(this);
             }
         }
         PlayerAttack?.Invoke();
     }
 
-    public virtual void TakeDamage()
+    public virtual void TakeDamage(Actor atkActor)
     {
         CanMove = false;
-        Debug.Log("Takge Damage");
+        Debug.Log($"{gameObject}Takge Damage ,by {atkActor.gameObject}");
         TackDamage?.Invoke();
     }
 
-    private void Update()
+    protected virtual void ColdDownAttack()
     {
-        if(!CanAttack)
+        if (!CanAttack)
         {
             atkTimer += Time.deltaTime;
-            if(atkTimer >= AtkColdDown)
+            if (atkTimer >= AtkColdDown)
             {
-                CanAttack = true;
-                atkTimer = 0f;
+                CanAttack = true;                
             }
         }
+        else
+        {
+            atkTimer = 0f;
+        }
+    }
 
-        if(!CanMove)
+    protected virtual void ColdDownMove()
+    {
+        if (!CanMove)
         {
             stopTimer += Time.deltaTime;
-            if(stopTimer >= StopColdDown)
+            if (stopTimer >= StopColdDown)
             {
-                CanMove = true;
-                stopTimer = 0f;
+                CanMove = true;                
             }
         }
+        else
+        {
+            stopTimer = 0f;
+        }
+    }
+
+    protected virtual void Update()
+    {
+        ColdDownAttack();
+        ColdDownMove();
     }
 }
