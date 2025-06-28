@@ -1,6 +1,5 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
@@ -13,7 +12,6 @@ public class PlayerController : MonoBehaviour
     private Actor actor;
 
     public UnityEvent<Vector2> PlayerMove;
-    public UnityEvent PlayerAttack;
 
     private void Awake()
     {
@@ -55,7 +53,6 @@ public class PlayerController : MonoBehaviour
         {
             actor.Attack();
         }
-        PlayerAttack?.Invoke();
     }
 
     private void Move()

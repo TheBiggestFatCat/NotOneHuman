@@ -4,7 +4,8 @@ using UnityEngine.Events;
 public class Actor : MonoBehaviour
 {
     public UnityEvent TackDamage;
-    
+    public UnityEvent PlayerAttack;
+
     [Header("AtkBox")]
     public float atkDistance = 0.5f;
     public Vector2 atkPoint = Vector2.zero;
@@ -42,7 +43,8 @@ public class Actor : MonoBehaviour
             {
                 actor.TakeDamage();
             }
-        }        
+        }
+        PlayerAttack?.Invoke();
     }
 
     public virtual void TakeDamage()

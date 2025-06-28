@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7941089619751870077}
   - component: {fileID: 3974857147147887771}
+  - component: {fileID: 1917580005975130383}
   - component: {fileID: 6867867178675535367}
   - component: {fileID: 7490141852682452118}
   m_Layer: 8
@@ -89,6 +90,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1917580005975130383
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196200303945940973}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &6867867178675535367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +175,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8a710579923a54fbf898e080784fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TackDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  atkDistance: 0.5
+  atkPoint: {x: 0, y: 0}
+  atkSize: {x: 1, y: 1}
+  atkAngle: 0
+  atkLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  AtkColdDown: 1
+  StopColdDown: 2
+  maxPosition: {x: 0, y: 0}
+  minPosition: {x: 0, y: 0}
+  Speed: 20

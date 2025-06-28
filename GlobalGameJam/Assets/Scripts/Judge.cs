@@ -2,5 +2,53 @@ using UnityEngine;
 
 public class Judge : Actor
 {
-    
+    public Vector2 maxPosition, minPosition;
+    public float Speed = 20f;
+    private Rigidbody2D rb;
+    private bool isMoving;
+    private Vector2 targetPosition;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private Vector2 RandmoPoint()
+    {
+        float x = Random.Range(minPosition.x, maxPosition.x);
+        float y = Random.Range(minPosition.y, maxPosition.y);
+        return new Vector2(x, y);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var obj = collision.gameObject.GetComponent<Actor>();
+        if(obj != null && obj is Defender)
+        {
+            obj.TakeDamage();
+            Debug.Log($"Judge collided with {obj.gameObject.name}");
+        }
+    }
+
+    private void Update()
+    {
+        if(!isMoving)
+        {
+            targetPosition = RandmoPoint();
+            isMoving = true;
+        }
+        else
+        {
+            if(Vector2.Distance(rb.position, targetPosition) < 0.1f)
+            {
+                isMoving = false;
+            }
+            else
+            {
+                Vector2 direction = (targetPosition - rb.position).normalized;
+                rb.MovePosition(rb.position + direction * Time.deltaTime * Speed);
+            }
+        }
+
+    }
 }
