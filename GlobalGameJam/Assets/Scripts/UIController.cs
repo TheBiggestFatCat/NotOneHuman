@@ -66,4 +66,10 @@ public class UIController : MonoBehaviour
     {
         EndGameUI.transform.DOScale(Vector3.one, 0.5f);
     }
+
+    public void EndGame()
+    {
+        EndGameUI.transform.DOScale(Vector3.one, 0.5f);
+        
+    }
 }
