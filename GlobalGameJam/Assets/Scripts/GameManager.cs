@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     public GameObject judgePrefab;
     public Vector3 judgeStartPosition;    
     public int readyManCount = 12;
-    public float gameStartDelay = 3f;
 
     private Dictionary<int, Actor> actorList = new();
 
@@ -35,14 +34,12 @@ public class GameManager : MonoBehaviour
         if(readyManCount <= 0)
         {
             OnGameReady?.Invoke();
-            StartCoroutine(StartGame());
         }
         Debug.Log($"GetReady Man = {readyManCount}");
     }
 
-    IEnumerator StartGame()
+    public void StartGame()
     {
-        yield return new WaitForSeconds(gameStartDelay);
         Instantiate(judgePrefab, judgeStartPosition, Quaternion.identity);
     }
 

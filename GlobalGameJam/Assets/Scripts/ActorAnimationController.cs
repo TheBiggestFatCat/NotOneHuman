@@ -13,7 +13,7 @@ public class ActorAnimationController : MonoBehaviour
         StartCoroutine(SetIdle());
         transform.parent.GetComponent<PlayerController>().PlayerMove.AddListener(SetMove);
         transform.GetComponent<Actor>().PlayerAttack.AddListener(SetAttack);
-        transform.GetComponent<Actor>().TackDamage.AddListener(SetTakeDamage);
+        transform.GetComponent<Actor>().OnTakeDamage.AddListener(SetTakeDamage);
     }
 
     // 待机动画 随机事件眨眼和左右看

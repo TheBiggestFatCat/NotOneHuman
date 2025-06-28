@@ -1,8 +1,6 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using Unity.VisualScripting;
-using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,8 +35,7 @@ public class PlayerController : MonoBehaviour
         var newActor = GameManager.Instance.CreateActor(playerIndex, transform);
         if(newActor != null)
         {
-            this.actor = newActor;
-            
+            this.actor = newActor;            
         }
     }
 
@@ -53,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnGameOver(int arg0)
     {
-        this.enabled = false;
+        Destroy(transform.GetChild(0).gameObject,2f);
     }
 
     public void OnMove(InputValue value)
