@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     }    
     public GameStats gameStats;
     public PlayerData[] playerData;
+    public UnityEvent<int> OnGameOver;
 
     public void DefenderTakeDamage()
     {
@@ -23,15 +25,28 @@ public class GameManager : MonoBehaviour
         if(p1Attacker)
         {
             ScoreManager.Instance.AddP1Score(1);
+            OnGameOver?.Invoke(0);
         }
         else
         {
             ScoreManager.Instance.AddP2Score(1);
+            OnGameOver?.Invoke(1);
         }
+        ;
     }
     public void TimeOver()
     {
-
+        bool p1Attacker = gameStats.AttackerPlayerIndex == 0;
+        if(p1Attacker)
+        {
+            ScoreManager.Instance.AddP2Score(1);
+            OnGameOver?.Invoke(1);
+        }
+        else
+        {
+            ScoreManager.Instance.AddP1Score(1);
+            OnGameOver?.Invoke(0);
+        }
     }
 
     public PlayerData GetPlayerData(int playerIndex)

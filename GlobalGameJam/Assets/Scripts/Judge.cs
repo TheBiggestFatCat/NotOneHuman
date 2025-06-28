@@ -77,8 +77,6 @@ public class Judge : Actor
                 Vector2 direction = (targetPosition - rb.position).normalized;
                 rb.MovePosition(rb.position + direction * Time.deltaTime * Speed);
             }
-
-            //Ã¿Ö¡Ë³Ê±ÕëÐý×ª
             rb.rotation += RotSpeed * Time.deltaTime;
         }
 

@@ -42,8 +42,7 @@ public class PlayerController : MonoBehaviour
         else if(direction.x < 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        PlayerMove?.Invoke(direction);
+        }        
     }
 
     public void OnAttack()
@@ -62,6 +61,8 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = direction * Time.deltaTime * speed;
             rb.MovePosition(rb.position + movement);
         }
+        PlayerMove?.Invoke(direction);
+        Debug.Log($"Player {playerIndex} is moving: {direction}");
     }
 
     void Start()
