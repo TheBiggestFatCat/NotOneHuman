@@ -21,7 +21,10 @@ public class CountDown : MonoBehaviour
     private void OnGameOver(int arg0)
     {
         isCountingDown = false;
-        StopCoroutine(coroutine);
+        if(coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }        
     }
 
     private void StartCountDown()
