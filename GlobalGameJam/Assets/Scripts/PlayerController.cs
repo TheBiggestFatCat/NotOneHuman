@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         playerIndex = playerInput.playerIndex;
+        rb = GetComponent<Rigidbody2D>();
         Debug.Log($"Player {playerIndex} On Awake");
         MoveToStartPoint();
         InitGameObject();
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if(newActor != null)
         {
             this.actor = newActor;
-            rb = actor.GetComponent<Rigidbody2D>();
+            
         }
     }
 

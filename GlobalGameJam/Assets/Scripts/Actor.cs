@@ -7,6 +7,7 @@ public class Actor : MonoBehaviour
     public UnityEvent TackDamage;
     public UnityEvent PlayerAttack;
     public UnityEvent<float> UpdateAttackCD;
+    public Rigidbody2D rb;
 
     [Header("AtkBox")]
     public float atkDistance = 0.5f;
@@ -21,6 +22,8 @@ public class Actor : MonoBehaviour
     public float StopColdDown = 2f;
     private float atkTimer;
     private float stopTimer;
+
+    
     public bool CanAttack { get; set; } = true;
     public bool CanMove { get; set; } = true;
 
@@ -33,7 +36,14 @@ public class Actor : MonoBehaviour
     {
         GameManager.Instance.OnGameOver.RemoveListener(OnGameOver);
     }
-
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        if(rb == null)
+        {
+            rb = transform.parent.GetComponent<Rigidbody2D>();
+        }
+    }
     private void OnGameOver(int arg0)
     {
         this.enabled = false;
@@ -60,9 +70,9 @@ public class Actor : MonoBehaviour
             if(actor != null)
             {
                 actor.TakeDamage(this);
-            }
-            Vector2 force =(collider.transform.position - transform.position).normalized * AtkForce;
-            collider.GetComponent<Rigidbody2D>()?.AddForce(force, ForceMode2D.Impulse);
+                Vector2 force = (collider.transform.position - transform.position).normalized * AtkForce;
+                actor.rb?.AddForce(force, ForceMode2D.Impulse);
+            }            
         }
         PlayerAttack?.Invoke();
     }

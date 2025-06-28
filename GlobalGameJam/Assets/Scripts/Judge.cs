@@ -6,14 +6,8 @@ public class Judge : Actor
     public Vector2 maxPosition, minPosition;
     public float Speed = 20f;
     public float RotSpeed = 500f;
-    private Rigidbody2D rb;
     private bool isMoving;
     private Vector2 targetPosition;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 
     private Vector2 RandmoPoint()
     {
@@ -21,9 +15,6 @@ public class Judge : Actor
         float y = Random.Range(minPosition.y, maxPosition.y);
         return new Vector2(x, y);
     }
-
-    
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -43,7 +34,7 @@ public class Judge : Actor
         if(!isMoving)
         {
             targetPosition = RandmoPoint();
-            Debug.Log($"Judge moving to {targetPosition}");
+            //Debug.Log($"Judge moving to {targetPosition}");
             isMoving = true;
         }
         else

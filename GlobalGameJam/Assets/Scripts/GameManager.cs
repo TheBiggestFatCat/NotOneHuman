@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public UnityEvent OnGameReady;
@@ -117,6 +116,11 @@ public class GameManager : MonoBehaviour
 
         Debug.LogWarning($"No player data found for player index {playerIndex} in scene {gameStats.SceneIndex} with isAttacker = {playerIsAttacker}");
         return null;
+    }
+
+    public void GoToNextBattle()
+    {
+        SceneManager.LoadScene(1);        
     }
 }
 
