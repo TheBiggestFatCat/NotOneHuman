@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6563756643268342013}
   - component: {fileID: 4460627744872456503}
   - component: {fileID: 1178990475118847390}
+  - component: {fileID: 8171677304084793661}
   m_Layer: 7
   m_Name: Battle 1 Defender
   m_TagString: Untagged
@@ -145,12 +146,28 @@ MonoBehaviour:
   PlayerAttack:
     m_PersistentCalls:
       m_Calls: []
+  UpdateAttackCD:
+    m_PersistentCalls:
+      m_Calls: []
   atkDistance: 0.5
   atkPoint: {x: 0, y: 0}
-  atkSize: {x: 1, y: 1}
+  atkSize: {x: 5, y: 5}
   atkAngle: 0
   atkLayer:
     serializedVersion: 2
     m_Bits: 64
-  AtkColdDown: 5
+  AtkForce: 30
+  AtkColdDown: 2
   StopColdDown: 2
+--- !u!114 &8171677304084793661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048906434754005601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af6d2dfab040e44789aef2469118eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
