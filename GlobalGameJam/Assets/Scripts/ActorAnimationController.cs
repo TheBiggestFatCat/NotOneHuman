@@ -14,6 +14,7 @@ public class ActorAnimationController : MonoBehaviour
         transform.parent.GetComponent<PlayerController>().PlayerMove.AddListener(SetMove);
         transform.GetComponent<Actor>().PlayerAttack.AddListener(SetAttack);
         transform.GetComponent<Actor>().OnTakeDamage.AddListener(SetTakeDamage);
+        GameManager.Instance.OnGameOver.AddListener(GameOver);
     }
 
     // 待机动画 随机事件眨眼和左右看
@@ -63,7 +64,8 @@ public class ActorAnimationController : MonoBehaviour
 
     public IEnumerator CheckEndDizzy()
     {
-        while (true) {
+        while (true)
+        {
             if (GetComponent<Actor>().CanMove)
             {
                 animator.SetTrigger("endDizzy");
@@ -73,6 +75,18 @@ public class ActorAnimationController : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.1f); // 每0.5秒检查一次
             }
+        }
+    }
+
+    public void GameOver(int playerIndex)
+    {
+        if (transform.parent.GetComponent<PlayerController>().playerIndex == playerIndex)
+        {
+            animator.SetBool("isWin", true);
+        }
+        else
+        {
+            animator.SetBool("isLose", true);
         }
     }
 }

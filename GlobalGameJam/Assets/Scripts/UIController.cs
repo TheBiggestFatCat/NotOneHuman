@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UIController : MonoBehaviour
     public GameObject Player1UI;
     public GameObject Player2UI;
     public GameObject EndGameUI;
+    public GameObject WinnerText;
 
     void Start()
     {
@@ -65,11 +67,13 @@ public class UIController : MonoBehaviour
     public void ShowEndGameUI(int winnerIndex)
     {
         EndGameUI.transform.DOScale(Vector3.one, 0.5f);
-    }
-
-    public void EndGame()
-    {
-        EndGameUI.transform.DOScale(Vector3.one, 0.5f);
-        
+        if (winnerIndex == 0)
+        {
+            WinnerText.GetComponent<TextMeshProUGUI>().text = "P1 Win!";
+        }
+        else
+        {
+            WinnerText.GetComponent<TextMeshProUGUI>().text = "P2 Win!";
+        }
     }
 }
