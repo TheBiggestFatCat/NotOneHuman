@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,7 +14,6 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public UnityEvent OnGameReady;
@@ -71,30 +69,58 @@ public class GameManager : MonoBehaviour
     public void DefenderTakeDamage()
     {
         bool p1Attacker = gameStats.AttackerPlayerIndex == 0;
-        if(p1Attacker)
+        if (p1Attacker)
         {
-            ScoreManager.Instance.AddP1Score(1);
-            OnGameOver?.Invoke(0);
+            ScoreManager.Instance.AddP1Score(GetScoreCount(0));
         }
         else
         {
-            ScoreManager.Instance.AddP2Score(1);
-            OnGameOver?.Invoke(1);
-        }
+            ScoreManager.Instance.AddP2Score(GetScoreCount(1));
+        }        
     }
-    public void TimeOver()
+
+    public void AttackerTakeDamage()
     {
         bool p1Attacker = gameStats.AttackerPlayerIndex == 0;
         if(p1Attacker)
         {
-            ScoreManager.Instance.AddP2Score(1);
+            ScoreManager.Instance.AddP2Score(GetScoreCount(1));
+        }
+        else
+        {
+            ScoreManager.Instance.AddP1Score(GetScoreCount(0));
+        }
+    }
+    public void TimeOver()
+    {
+        int p1Score = ScoreManager.Instance.GetP1Score();
+        int p2Score = ScoreManager.Instance.GetP2Score();
+        if(p1Score > p2Score )
+        {
+            Debug.Log("Player 1 win");
+            OnGameOver?.Invoke(0);
+        }
+        else if (p2Score > p1Score)
+        {
+            Debug.Log("Player 2 win");
             OnGameOver?.Invoke(1);
         }
         else
         {
-            ScoreManager.Instance.AddP1Score(1);
-            OnGameOver?.Invoke(0);
+            Debug.Log("Game Draw");
+            OnGameOver?.Invoke(-1);
         }
+    }
+
+    public int GetScoreCount(int playerIndex)
+    {
+        var playerData = GetPlayerData(playerIndex);
+        if(playerData != null)
+        {
+            return playerData.GetScoreCount;
+        }
+        Debug.LogWarning($"No player data found for player index {playerIndex}");
+        return 0;
     }
 
     public PlayerData GetPlayerData(int playerIndex)
@@ -117,11 +143,6 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextBattle()
     {
-        readyManCount = 12;
-        actorList.Clear();
-        gameStats.AttackerPlayerIndex = gameStats.AttackerPlayerIndex == 0 ? 1 : 0;
-        OnGameReady.RemoveAllListeners();
-        OnGameOver.RemoveAllListeners();
         SceneManager.LoadScene(0);
     }
 
@@ -149,4 +170,5 @@ public class PlayerData
     public Vector3 localPositionOffset;
     public bool isAttacker;
     public int SceneIndex;
+    public int GetScoreCount;
 }

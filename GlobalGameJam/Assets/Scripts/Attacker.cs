@@ -16,4 +16,10 @@ public class Attacker : Actor
         );
         Gizmos.DrawWireCube(Vector3.zero, atkSize);
     }
+
+    public override void TakeDamage(Actor atkActor)
+    {
+        base.TakeDamage(atkActor);
+        GameManager.Instance.AttackerTakeDamage();
+    }
 }
