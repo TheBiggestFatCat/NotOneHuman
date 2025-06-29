@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             this.actor = newActor;            
         }
+        speed = GameManager.Instance.GetPlayerData(playerIndex).speed;
     }
 
     private void OnEnable()
