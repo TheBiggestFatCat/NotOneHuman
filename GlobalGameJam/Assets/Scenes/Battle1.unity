@@ -669,8 +669,8 @@ MonoBehaviour:
   audioSource_BGM: {fileID: 1669488797}
   AMB_List: []
   SE_List:
-  - {fileID: 8300000, guid: b5e5fde14b3902340847581d1474c445, type: 3}
   - {fileID: 8300000, guid: 396d7d822a9062341a240216f8cefa5f, type: 3}
+  - {fileID: 8300000, guid: b5e5fde14b3902340847581d1474c445, type: 3}
   BGM_List:
   - {fileID: 8300000, guid: 9987517fc10e7a54f9e83279cf953471, type: 3}
 --- !u!4 &943722952
