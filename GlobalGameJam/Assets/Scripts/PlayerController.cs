@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         this.enabled = false;
         actor.enabled = false;
+        playerInput.enabled = false;
     }
 
     public void OnMove(InputValue value)
