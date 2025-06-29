@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Threading;
 using UnityEngine;
 
 public class Judge : Actor
@@ -8,7 +9,8 @@ public class Judge : Actor
     public float RotSpeed = 500f;
     private bool isMoving;
     private Vector2 targetPosition;
-
+    private float changeDirectionTime = 3f;
+    private float timer;
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver.AddListener(OnGameOver);
@@ -53,11 +55,11 @@ public class Judge : Actor
         if(!isMoving)
         {
             targetPosition = RandmoPoint();
-            //Debug.Log($"Judge moving to {targetPosition}");
             isMoving = true;
         }
         else
         {
+            //移动到目标点
             if(Vector2.Distance(rb.position, targetPosition) < 0.1f)
             {
                 isMoving = false;
@@ -68,6 +70,14 @@ public class Judge : Actor
                 rb.MovePosition(rb.position + direction * Time.deltaTime * Speed);
             }
             rb.rotation += RotSpeed * Time.deltaTime;
+            
+            //更换目标计时器
+            timer += Time.deltaTime;
+            if(timer >= changeDirectionTime)
+            {
+                isMoving = false;
+                timer = 0f;
+            }
         }
 
     }
