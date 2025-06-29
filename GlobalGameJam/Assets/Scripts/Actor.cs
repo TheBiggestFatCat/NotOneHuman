@@ -38,6 +38,7 @@ public class Actor : MonoBehaviour
         }
     }
 
+
     public virtual void Attack()
     {
         if (!CanAttack || !CanMove)
@@ -46,6 +47,7 @@ public class Actor : MonoBehaviour
             return;
         }
         CanAttack = false;
+        timerAtk = 0f;
 
         Debug.Log("Attacker is attacking!");
         Vector2 dir = transform.parent.right * -1;
@@ -70,7 +72,10 @@ public class Actor : MonoBehaviour
     {
         if (!CanBeAttacked) return;
         CanBeAttacked = false;
-        CanMove = false;        
+        timerCanBeAtk = 0f;
+        CanMove = false;
+        timerMove = 0f;
+
         Debug.Log($"{gameObject}Takge Damage ,by {atkActor.gameObject}");
         OnTakeDamage?.Invoke();
         AudioManager.Instance.PlaySFX(sfxIndex);
