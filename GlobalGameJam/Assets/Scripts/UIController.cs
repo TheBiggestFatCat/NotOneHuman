@@ -10,7 +10,9 @@ public class UIController : MonoBehaviour
     public GameObject Player1UI;
     public GameObject Player2UI;
     public GameObject EndGameUI;
-    public GameObject WinnerText;
+    public TextMeshProUGUI WinnerText;
+    public TextMeshProUGUI P1ScoreText;
+    public TextMeshProUGUI P2ScoreText;
 
     void Start()
     {
@@ -37,6 +39,11 @@ public class UIController : MonoBehaviour
         {
             return;
         }
+        if (P1ScoreText != null && P2ScoreText != null)
+        {
+            P1ScoreText.text = ScoreManager.Instance.GetP1Score().ToString();
+            P2ScoreText.text = ScoreManager.Instance.GetP2Score().ToString();
+        }
     }
 
     public void ShowStartText()
@@ -47,7 +54,6 @@ public class UIController : MonoBehaviour
     public void HideMenuUI()
     {
         MenuUI.transform.DOScale(Vector3.zero, 0.5f);
-        Debug.Log("OnGameReady");
     }
 
     public void ShowInGameUI()
@@ -69,11 +75,15 @@ public class UIController : MonoBehaviour
         EndGameUI.transform.DOScale(Vector3.one, 0.5f);
         if (winnerIndex == 0)
         {
-            WinnerText.GetComponent<TextMeshProUGUI>().text = "P1 Win!";
+            WinnerText.text = "P1 Win!";
+        }
+        else if (winnerIndex == 1)
+        {
+            WinnerText.text = "P2 Win!";
         }
         else
         {
-            WinnerText.GetComponent<TextMeshProUGUI>().text = "P2 Win!";
+            WinnerText.text = "Draw!";
         }
     }
 }

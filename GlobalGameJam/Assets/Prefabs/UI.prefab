@@ -392,7 +392,9 @@ MonoBehaviour:
   Player1UI: {fileID: 6176115355969831881}
   Player2UI: {fileID: 530655597052375915}
   EndGameUI: {fileID: 9160766074008151467}
-  WinnerText: {fileID: 7286164711484654181}
+  WinnerText: {fileID: 2080341310216366631}
+  P1ScoreText: {fileID: 3580780927922178608}
+  P2ScoreText: {fileID: 4470677718216374528}
 --- !u!1 &403113120278113741
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +724,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1 '
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72fbb150145a4504a9e0065e9c02c9d4, type: 2}
   m_sharedMaterial: {fileID: 8101981046425254369, guid: 72fbb150145a4504a9e0065e9c02c9d4, type: 2}
@@ -1254,7 +1256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72fbb150145a4504a9e0065e9c02c9d4, type: 2}
   m_sharedMaterial: {fileID: 8101981046425254369, guid: 72fbb150145a4504a9e0065e9c02c9d4, type: 2}
