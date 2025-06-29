@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8935726381566720138}
   - component: {fileID: 7383467042301092677}
+  - component: {fileID: 2926639956203379024}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,27 +45,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a00b3be92fc4c449d53dd7f05e6513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGameReady:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGameOver:
+    m_PersistentCalls:
+      m_Calls: []
   gameStats:
     AttackerPlayerIndex: 0
     SceneIndex: 0
+    GameTime: 60
   playerData:
   - prefab: {fileID: 156862447102498159, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
     StartPosition: {x: -5.33, y: -0.5, z: 0}
     localPositionOffset: {x: 0, y: 0, z: 0}
     isAttacker: 1
     SceneIndex: 0
+    GetScoreCount: 0
   - prefab: {fileID: 2048906434754005601, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
     StartPosition: {x: 5.7, y: -0.45, z: 0}
     localPositionOffset: {x: 0, y: 0, z: 0}
     isAttacker: 0
     SceneIndex: 0
+    GetScoreCount: 0
   judgePrefab: {fileID: 2196200303945940973, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
   judgeStartPosition: {x: 0, y: 0, z: 0}
-  OnGameOver:
-    m_PersistentCalls:
-      m_Calls: []
   readyManCount: 12
-  OnGameReady:
-    m_PersistentCalls:
-      m_Calls: []
-  gameStartDelay: 3
+--- !u!114 &2926639956203379024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8867101523495503016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4ac7503602c0740ac57b4c6cae7ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFrameRate: 60
