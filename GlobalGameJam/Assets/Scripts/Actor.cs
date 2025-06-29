@@ -19,10 +19,12 @@ public class Actor : MonoBehaviour
     public float AtkForce = 10f;
     public float AtkColdDown = 1f;
     public float StopColdDown = 2f;
+    public float beAttackedColdDown = 3f;
+
     private float atkTimer;
     private float stopTimer;
-
-    
+    private float beAttackedTimer;
+    public bool CanBeAttacked { get; set; } = true;
     public bool CanAttack { get; set; } = true;
     public bool CanMove { get; set; } = true;
     
@@ -65,6 +67,8 @@ public class Actor : MonoBehaviour
 
     public virtual void TakeDamage(Actor atkActor)
     {
+        if (!CanBeAttacked) return;
+        CanBeAttacked = false;
         CanMove = false;        
         Debug.Log($"{gameObject}Takge Damage ,by {atkActor.gameObject}");
         OnTakeDamage?.Invoke();
@@ -103,9 +107,26 @@ public class Actor : MonoBehaviour
         }
     }
 
+    protected virtual void ColdDownBeAttacked()
+    {
+        if (!CanBeAttacked)
+        {
+            beAttackedTimer += Time.deltaTime;
+            if (beAttackedTimer >= beAttackedColdDown)
+            {
+                CanBeAttacked = true;
+            }
+        }
+        else
+        {
+            beAttackedTimer = 0f;
+        }
+    }
+
     protected virtual void Update()
     {
         ColdDownAttack();
         ColdDownMove();
+        ColdDownBeAttacked();
     }
 }
