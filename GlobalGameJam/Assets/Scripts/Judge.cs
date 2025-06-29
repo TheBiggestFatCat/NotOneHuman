@@ -44,6 +44,10 @@ public class Judge : Actor
         if (obj != null)
         {
             obj.TakeDamage(this);
+            if(isMoving && CanMove)
+            {
+                isMoving = false;
+            }
         }
     }
 
