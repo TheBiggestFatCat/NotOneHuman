@@ -22,9 +22,9 @@ public class Actor : MonoBehaviour
     public float beAttackedColdDown = 3f;
     public int sfxIndex = 2;
 
-    private float atkTimer;
-    private float stopTimer;
-    private float beAttackedTimer;
+    protected float timerAtk;
+    protected float timerMove;
+    protected float timerCanBeAtk;
     public bool CanBeAttacked { get; set; } = true;
     public bool CanAttack { get; set; } = true;
     public bool CanMove { get; set; } = true;
@@ -80,16 +80,16 @@ public class Actor : MonoBehaviour
     {
         if (!CanAttack)
         {
-            atkTimer += Time.deltaTime;
-            if (atkTimer >= AtkColdDown)
+            timerAtk += Time.deltaTime;
+            if (timerAtk >= AtkColdDown)
             {
                 CanAttack = true;             
             }
-            UpdateAttackCD?.Invoke(atkTimer / AtkColdDown);
+            UpdateAttackCD?.Invoke(timerAtk / AtkColdDown);
         }
         else
         {
-            atkTimer = 0f;
+            timerAtk = 0f;
         }        
     }
 
@@ -97,15 +97,15 @@ public class Actor : MonoBehaviour
     {
         if (!CanMove)
         {
-            stopTimer += Time.deltaTime;
-            if (stopTimer >= StopColdDown)
+            timerMove += Time.deltaTime;
+            if (timerMove >= StopColdDown)
             {
                 CanMove = true;                
             }
         }
         else
         {
-            stopTimer = 0f;            
+            timerMove = 0f;            
         }
     }
 
@@ -113,15 +113,15 @@ public class Actor : MonoBehaviour
     {
         if (!CanBeAttacked)
         {
-            beAttackedTimer += Time.deltaTime;
-            if (beAttackedTimer >= beAttackedColdDown)
+            timerCanBeAtk += Time.deltaTime;
+            if (timerCanBeAtk >= beAttackedColdDown)
             {
                 CanBeAttacked = true;
             }
         }
         else
         {
-            beAttackedTimer = 0f;
+            timerCanBeAtk = 0f;
         }
     }
 
