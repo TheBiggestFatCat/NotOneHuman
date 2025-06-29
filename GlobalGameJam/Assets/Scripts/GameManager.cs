@@ -110,6 +110,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game Draw");
             OnGameOver?.Invoke(-1);
         }
+
+        AudioManager.Instance.PlaySFX(0);
     }
 
     public int GetScoreCount(int playerIndex)

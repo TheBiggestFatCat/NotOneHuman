@@ -14,9 +14,4 @@ public class AudioTrigger : MonoBehaviour
         if(autoPlayAMB) AudioManager.Instance?.PlayAmb(ambIndex);
         if(autoPlayBGM) AudioManager.Instance?.PlayBGM(bgmIndex);
     }
-
-    public void PlaySfx(int index)
-    {
-        AudioManager.Instance?.PlaySFX(index);
-    }
 }
