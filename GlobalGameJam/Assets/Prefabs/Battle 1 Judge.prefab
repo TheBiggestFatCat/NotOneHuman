@@ -199,5 +199,5 @@ MonoBehaviour:
   sfxIndex: 2
   maxPosition: {x: 7.46, y: 3.55}
   minPosition: {x: -7.61, y: -3.81}
-  Speed: 20
-  RotSpeed: 500
+  Speed: 8
+  RotSpeed: 600
