@@ -20,7 +20,7 @@ public class Actor : MonoBehaviour
     public float AtkColdDown = 1f;
     public float StopColdDown = 2f;
     public float beAttackedColdDown = 3f;
-    public int sfxIndex = 3;
+    public int sfxIndex = 2;
 
     private float atkTimer;
     private float stopTimer;

@@ -195,6 +195,8 @@ MonoBehaviour:
   AtkForce: 10
   AtkColdDown: 1
   StopColdDown: 2
+  beAttackedColdDown: 3
+  sfxIndex: 2
   maxPosition: {x: 7.46, y: 3.55}
   minPosition: {x: -7.61, y: -3.81}
   Speed: 20

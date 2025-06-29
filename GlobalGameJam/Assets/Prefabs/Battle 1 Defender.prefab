@@ -161,6 +161,8 @@ MonoBehaviour:
   AtkForce: 30
   AtkColdDown: 2
   StopColdDown: 2
+  beAttackedColdDown: 3
+  sfxIndex: 2
 --- !u!114 &8171677304084793661
 MonoBehaviour:
   m_ObjectHideFlags: 0
