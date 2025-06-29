@@ -56,6 +56,7 @@ public class Judge : Actor
         {
             targetPosition = RandmoPoint();
             isMoving = true;
+            timer = 0f;
         }
         else
         {
@@ -76,7 +77,6 @@ public class Judge : Actor
             if(timer >= changeDirectionTime)
             {
                 isMoving = false;
-                timer = 0f;
             }
         }
 
