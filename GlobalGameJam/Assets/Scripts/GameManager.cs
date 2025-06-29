@@ -170,6 +170,7 @@ public class PlayerData
     public GameObject prefab;
     public Vector3 StartPosition;
     public Vector3 localPositionOffset;
+    public float speed;
     public bool isAttacker;
     public int SceneIndex;
     public int GetScoreCount;

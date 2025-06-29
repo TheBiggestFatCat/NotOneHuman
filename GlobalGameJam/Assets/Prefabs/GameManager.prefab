@@ -59,15 +59,17 @@ MonoBehaviour:
   - prefab: {fileID: 156862447102498159, guid: 09340bde6562d204da1878f31dba73fe, type: 3}
     StartPosition: {x: -5.33, y: -0.5, z: 0}
     localPositionOffset: {x: 0, y: 0, z: 0}
+    speed: 10
     isAttacker: 1
     SceneIndex: 0
-    GetScoreCount: 0
+    GetScoreCount: 1
   - prefab: {fileID: 2048906434754005601, guid: 5f9f641cb3e967b4cbc44c64c25119d6, type: 3}
     StartPosition: {x: 5.7, y: -0.45, z: 0}
     localPositionOffset: {x: 0, y: 0, z: 0}
+    speed: 8
     isAttacker: 0
     SceneIndex: 0
-    GetScoreCount: 0
+    GetScoreCount: 1
   judgePrefab: {fileID: 2196200303945940973, guid: d9c92f276b82ec1458959adbb6617f30, type: 3}
   judgeStartPosition: {x: 0, y: 0, z: 0}
   readyManCount: 12
