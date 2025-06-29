@@ -11,7 +11,7 @@ public class Defender : Actor
     public override void Attack()
     {
         base.Attack();
-        CanAttack = false;
+        CanBeAttacked = false;
     }
 
     private void OnDrawGizmos()
