@@ -19,7 +19,10 @@ public class Attacker : Actor
 
     public override void TakeDamage(Actor atkActor)
     {
+        if(CanBeAttacked)
+        {
+            GameManager.Instance.AttackerTakeDamage();
+        }
         base.TakeDamage(atkActor);
-        GameManager.Instance.AttackerTakeDamage();
     }
 }
