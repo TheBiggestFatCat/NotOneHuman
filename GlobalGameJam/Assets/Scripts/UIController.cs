@@ -11,6 +11,8 @@ public class UIController : MonoBehaviour
     public GameObject Player2UI;
     public GameObject EndGameUI;
     public GameObject WinnerText;
+    public TextMeshProUGUI P1ScoreText;
+    public TextMeshProUGUI P2ScoreText;
 
     void Start()
     {
@@ -36,6 +38,11 @@ public class UIController : MonoBehaviour
         else
         {
             return;
+        }
+        if (P1ScoreText != null && P2ScoreText != null)
+        {
+            P1ScoreText.text = ScoreManager.Instance.GetP1Score().ToString();
+            P2ScoreText.text = ScoreManager.Instance.GetP2Score().ToString();
         }
     }
 

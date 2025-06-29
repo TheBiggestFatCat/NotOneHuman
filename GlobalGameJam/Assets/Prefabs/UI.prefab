@@ -393,6 +393,8 @@ MonoBehaviour:
   Player2UI: {fileID: 530655597052375915}
   EndGameUI: {fileID: 9160766074008151467}
   WinnerText: {fileID: 7286164711484654181}
+  P1ScoreText: {fileID: 3580780927922178608}
+  P2ScoreText: {fileID: 4470677718216374528}
 --- !u!1 &403113120278113741
 GameObject:
   m_ObjectHideFlags: 0
