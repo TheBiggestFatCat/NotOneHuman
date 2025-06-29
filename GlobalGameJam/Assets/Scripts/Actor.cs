@@ -20,6 +20,7 @@ public class Actor : MonoBehaviour
     public float AtkColdDown = 1f;
     public float StopColdDown = 2f;
     public float beAttackedColdDown = 3f;
+    public int sfxIndex = 3;
 
     private float atkTimer;
     private float stopTimer;
@@ -72,6 +73,7 @@ public class Actor : MonoBehaviour
         CanMove = false;        
         Debug.Log($"{gameObject}Takge Damage ,by {atkActor.gameObject}");
         OnTakeDamage?.Invoke();
+        AudioManager.Instance.PlaySFX(sfxIndex);
     }
 
     protected virtual void ColdDownAttack()
