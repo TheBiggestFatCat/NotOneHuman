@@ -1539,6 +1539,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7383467042301092677, guid: 20ff2e38d6062614c90068f3c7be88e3, type: 3}
+      propertyPath: gameStats.GameTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383467042301092677, guid: 20ff2e38d6062614c90068f3c7be88e3, type: 3}
       propertyPath: playerData.Array.data[0].GetScoreCount
       value: 1
       objectReference: {fileID: 0}
