@@ -13,12 +13,16 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI WinnerText;
     public TextMeshProUGUI P1ScoreText;
     public TextMeshProUGUI P2ScoreText;
+    public Transform Guide1;
+    public Transform Guide2;
 
     void Start()
     {
         ShowStartText();
         GameManager.Instance.OnGameReady.AddListener(HideMenuUI);
         GameManager.Instance.OnGameOver.AddListener(ShowEndGameUI);
+        AnimateUI(Guide1);
+        AnimateUI(Guide2);
     }
 
     void Update()
@@ -85,5 +89,10 @@ public class UIController : MonoBehaviour
         {
             WinnerText.text = "Draw!";
         }
+    }
+
+    public void AnimateUI(Transform uiElement)
+    {
+        uiElement.DOScale(Vector3.one * 1.1f, 0.5f).SetLoops(-1, LoopType.Yoyo);
     }
 }

@@ -259,6 +259,8 @@ MonoBehaviour:
   WinnerText: {fileID: 2080341310216366631}
   P1ScoreText: {fileID: 3580780927922178608}
   P2ScoreText: {fileID: 4470677718216374528}
+  Guide1: {fileID: 8326290085482188321}
+  Guide2: {fileID: 3523799762912339160}
 --- !u!1 &403113120278113741
 GameObject:
   m_ObjectHideFlags: 0
