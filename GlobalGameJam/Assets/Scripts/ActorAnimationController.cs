@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class ActorAnimationController : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class ActorAnimationController : MonoBehaviour
     public void SetTakeDamage()
     {
         animator.SetTrigger("beAttacked");
+        PlayDamageFlash(GetComponent<SpriteRenderer>(), GetComponent<Actor>().beAttackedColdDown);
         StartCoroutine(CheckEndDizzy());
     }
 
@@ -88,5 +90,15 @@ public class ActorAnimationController : MonoBehaviour
         {
             animator.SetBool("isWin", true);
         }
+    }
+    
+    // 透明闪烁效果
+    public void PlayDamageFlash(SpriteRenderer renderer, float duration)
+    {
+        Sequence flashSequence = DOTween.Sequence();
+        flashSequence.Append(renderer.DOColor(new Color32(255, 255, 255, 0), duration / 40));
+        flashSequence.Append(renderer.DOColor(Color.white, duration / 40));
+        flashSequence.SetLoops(20, LoopType.Restart);
+        flashSequence.OnComplete(() => renderer.color = Color.white);
     }
 }
