@@ -80,13 +80,13 @@ public class ActorAnimationController : MonoBehaviour
 
     public void GameOver(int playerIndex)
     {
-        if (transform.parent.GetComponent<PlayerController>().playerIndex == playerIndex)
+        if (transform.parent.GetComponent<PlayerController>().playerIndex != playerIndex)
         {
-            animator.SetBool("isWin", true);
+            animator.SetBool("isLose", true);
         }
         else
         {
-            animator.SetBool("isLose", true);
+            animator.SetBool("isWin", true);
         }
     }
 }
